@@ -2,7 +2,7 @@
 
 This project serves as a simple API serving two GET enabled endpoints, **count** and **question**.
 
-Two files within the assets folder NAMES and QUESTIONS contain a list of names and icebreaker questions, respectively.  The NAMES file additionally contains a HTML color codes for the foreground and background of the displayed text.
+Two files within the assets folder NAMES and QUESTIONS contain a list of names and icebreaker questions, respectively.  The NAMES file additionally contains HTML color codes for the foreground and background of the displayed text.
 
 The **count** endpoint doesn't require a parameter, and returns the overall count of items that your Thunkable UI can randomly select from, which is simply the count of the rows within the NAMES file times the count of the rows within the QUESTIONS file.
 

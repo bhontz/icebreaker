@@ -1,3 +1,6 @@
+"""
+    Class supporting the creation of a simple two endpoint API
+"""
 import json, sys, csv
 
 class ICEBreaker():
@@ -5,14 +8,12 @@ class ICEBreaker():
         self.count = -1
         self.lstNames = [] # list of player names, strings
         self.lstQuestions = [] # list of icebreaker questions, strings
-        self.lstColors = [] # list of bg,fg html color codes, tuples
         self.__populateLists()
         return
 
     def __del__(self):
         del self.lstNames
         del self.lstQuestions
-        del self.lstColors
         del self
         return
 
@@ -57,7 +58,10 @@ class ICEBreaker():
     def getQuestion(self, item):
         """
             returns a JSON structure containing a player, question, bg and fg color
-            parameter 'item' has to range from 0 to self.count - 1, and determines what to return
+            parameter 'item' has to range from 0 to self.count - 1, and determines what to return.
+            Note that this assumes that the NAMES file record structure is as follows:
+            name, #htmlfgcolor, #htmlbgcolor
+            See the example names.csv included within the assets file of this project.
         """
         d = dict()
 

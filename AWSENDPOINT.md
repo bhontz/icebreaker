@@ -1,4 +1,4 @@
-##Hosting the Icebreaker API with Amazon's AWS Lambda Service 
+## Hosting the Icebreaker API with Amazon's AWS Lambda Service 
 
 In the README of this repo I mention how to test this API illustration using
 localhost and how to temporarily expose it to the internet (and so Thunkable
@@ -8,7 +8,7 @@ as we will illustrate here, Amazon AWS's Lambda service.   We can use one of
 these services to create a permanent API endpoint that can be referenced by
 anyone using a Thunkable WebAPI block.
 
-###Create an AWS Account
+### Create an AWS Account
 
 You'll need to create a AWS account in order to proceed.   As of this writing
 (and for several years before) AWS provides a FREE TIER which will work just
@@ -39,18 +39,15 @@ On a Windows machine, these two credential files should be stored within an
 aws folder beneath your home (see your %UserProfile% environment variable)
 folder.
 
-
-###Changes required to the Icebreaker Python project
+### Changes required to the Icebreaker Python project
 
 Within this repo's module app.py, change the last line from:
 
-
-    `app.run(debug=True, host='127.0.0.1', port=8080)`
+    app.run(debug=True, host='127.0.0.1', port=8080)
 
 … to:
 
-    `app.run()`
-
+    app.run()
 
 We will use the [python module zappa](https://github.com/Miserlou/Zappa) to
 simplify the creation of an AWS lambda API endpoint.  The zappa process will
@@ -59,7 +56,7 @@ so it's essential that you create a virtual environment specific to this
 project so that it will contain only the python modules  associated with this
 project.
 
-###Create a virtual environment for this project
+### Create a virtual environment for this project
 
 Fortunately, it's very easy to create a virtual environment for each one of
 your python projects, and it's additionally a "best practice" to follow.
@@ -68,12 +65,12 @@ From your terminal (or command prompt), change into your projects folder (here
 I'll be using the folder name example "/user/me/code/icebreaker" and execute
 the following:
 
-    `$ python3 -m venv env`
+    $ python3 -m venv env
 
 This will create the folder env beneath your project folder.  Next, start the
 virtual environment using the command:
 
-    `$ source env/bin/activate`
+    $ source env/bin/activate
 
 You will note your terminal (command prompt) prompt will change as an
 indication that you are now working within the virtual environment.
@@ -83,17 +80,17 @@ requirements.txt file which contains the python modules the project requires.
 To install the requirements within your new virtual environment, use pip as
 shown here:
 
-    `(env) $ pip install -r requirements.txt`
+    (env) $ pip install -r requirements.txt
 
 You'll also need to install the zappa module, which you can do as follows:
 
-    `(env) $ pip install zappa`
+    (env) $ pip install zappa
 
 Now you can run zappa from your terminal (command prompt) and follow along
 with the prompted questions, confirming each of the default selections as
 prompted.
 
-    `(env) user:icebreaker$ zappa init`
+    (env) user:icebreaker$ zappa init
 
 You'll note towards the end of the output of this step:
 
@@ -104,12 +101,12 @@ You'll note towards the end of the output of this step:
 You note here that I'd elected to use the default "dev" project as part of the
 "zappa init" step.  Now we just need to:
 
-    `(env) $ zappa deploy dev`
+    (env) $ zappa deploy dev
 
 … which will deploy the app on AWS and return the equivalent of:
 
-Deploying API Gateway..
-Deployment complete: https://fdalfkjda.execute-us-east-2.amazon.aws.com/dev
+    Deploying API Gateway..
+    Deployment complete: https://fdalfkjda.execute-us-east-2.amazon.aws.com/dev
 
 Your URL endpoint will of course be different than the example above, but I'll
 continue to use this fictional URL throughout the remainder of this document.
@@ -128,7 +125,7 @@ The item parameter's value of "1" is an illustration; your Thunkable app will su
 value of 1 with a random value between 0 and the count we obtained by visiting
 the "count" endpoint.
 
-Good luck with your implementation!
+Good luck with your own implementation!
 
 
 

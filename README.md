@@ -26,3 +26,5 @@ Assuming you have localhost enabled on your machine, run app.py from this projec
 Install NGROK, then start NGROK as follows:  `>ngrok http 8080 `  This will route your localhost's http traffic from port 8080 to a URL that NGROK will display.  Cut and paste that URL and replace the Thunkable scnHome URL block's variable's value with the this url (http) displayed on the NGROK output.
 
 Now you can open Thunkable Live on your mobile device and "Live Test" within Thunkable.  Press the dice to display a new icebreaker screen, depicting a name and icebreaker question.   Change the assets/names.csv and assets/questions.csv files as you require, restarting the webserver after you make these changes.
+
+If you'd like to explore hosting your endpoint on a cloud service, please refer to the document [AWSENDPOINT.md](AWSENDPOINT.md) included within this repo.

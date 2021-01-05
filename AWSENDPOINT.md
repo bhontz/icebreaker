@@ -11,7 +11,7 @@ anyone using a Thunkable WebAPI block.
 ### Create an AWS Account
 
 You'll need to create a AWS account in order to proceed.   As of this writing
-(and for several years before) AWS provides a FREE TIER which will work just
+(and for several years before) AWS has provided a FREE TIER which will work just
 fine, although do note that you'll have to provide a payment method even when
 signing up for the free tier.  
 
@@ -24,11 +24,12 @@ nothing (under Amazon's free 12-month trial), or next to nothing based on
 likely usage for this Thunkable app challenge example.  
 
 There are plenty of resources to follow for creating an AWS account, [here's
-an example](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-
-activate-aws-account/).   Ultimately, you will be creating AWS credentials
+an example](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).   
+
+Ultimately, you will be creating AWS credentials
 consisting of an AWS_ACCESS_KEY_ID and an AWS_SECRET_ACCESS_KEY.  I am using a
-Mac OSx system and these two keys are stored in ~/.aws/credentials.  A similar
-separate file ~/.aws/config, contains two keys, output and region, for
+Mac OSx system and these two keys are stored within the file ~/.aws/credentials.  A similar
+and separate file ~/.aws/config, contains two keys, output and region; for
 example:
 
     [default]
@@ -53,7 +54,7 @@ We will use the [python module zappa](https://github.com/Miserlou/Zappa) to
 simplify the creation of an AWS lambda API endpoint.  The zappa process will
 create a "package" of all the modules within our machine's python environment,
 so it's essential that you create a virtual environment specific to this
-project so that it will contain only the python modules  associated with this
+project in order to limit the modules packaged to the python modules associated with this
 project.
 
 ### Create a virtual environment for this project
@@ -61,8 +62,7 @@ project.
 Fortunately, it's very easy to create a virtual environment for each one of
 your python projects, and it's additionally a "best practice" to follow.
 
-From your terminal (or command prompt), change into your projects folder (here
-I'll be using the folder name example "/user/me/code/icebreaker" and execute
+From your terminal (or command prompt), change into your projects folder and execute
 the following:
 
     $ python3 -m venv env
@@ -76,7 +76,7 @@ You will note your terminal (command prompt) prompt will change as an
 indication that you are now working within the virtual environment.
 
 If you "cloned" this project from github, you'll note the use of
-requirements.txt file which contains the python modules the project requires.
+requirements.txt file which contains the python modules this project requires.
 To install the requirements within your new virtual environment, use pip as
 shown here:
 
@@ -87,8 +87,8 @@ You'll also need to install the zappa module, which you can do as follows:
     (env) $ pip install zappa
 
 Now you can run zappa from your terminal (command prompt) and follow along
-with the prompted questions, confirming each of the default selections as
-prompted.
+with the prompted questions, **confirming each of the default selections as
+you are prompted.**
 
     (env) user:icebreaker$ zappa init
 
@@ -98,7 +98,7 @@ You'll note towards the end of the output of this step:
     Done! Now you can deploy your Zappa application by executing:
         $ zappa deploy dev
 
-You note here that I'd elected to use the default "dev" project as part of the
+You note here I'd used the default "dev" project as part of the
 "zappa init" step.  Now we just need to:
 
     (env) $ zappa deploy dev
@@ -111,13 +111,12 @@ You note here that I'd elected to use the default "dev" project as part of the
 Your URL endpoint will of course be different than the example above, but I'll
 continue to use this fictional URL throughout the remainder of this document.
 
-Just as we within this repo's README, we can obtain the count of the name /
+Just as within this repo's README, we can obtain the count of the name X 
 icebreaker combinations from Thunkable by pointing our WebAPI block to:
 
     https://fdalfkjda.execute-us-east-2.amazon.aws.com/dev/count
 
-… which will determine the range of our random item selection which we then
-call as follows:
+… which will determine the range of our random item selection when we call the question endpoint as follows:
 
     https://fdalfkjda.execute-us-east-2.amazon.aws.com/dev/question?item=1
 
